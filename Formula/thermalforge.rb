@@ -1,14 +1,13 @@
 class Thermalforge < Formula
-  desc "Thermal performance tool for Apple Silicon"
+  desc "Thermal performance CLI for Apple Silicon"
   homepage "https://github.com/lcw332/ThermalForge"
-  url "https://github.com/lcw332/ThermalForge/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "d62b077504de677a8afd5fa9116f66ed5f365b95d1c5dc3f6482fdb961d30019"
+  url "https://github.com/lcw332/ThermalForge/releases/latest/download/ThermalForge-1.0.0-macOS.zip"
+  sha256 "DUMMY_PLACEHOLDER"
   license "MIT"
 
-  depends_on xcode: :build
+  depends_on macos: :sonoma
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox"
-    bin.install ".build/release/thermalforge"
+    bin.install "thermalforge"
   end
 end
