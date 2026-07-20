@@ -1,6 +1,6 @@
 cask "thermalforge-app" do
   version "1.0.0"
-  sha256 "e041b2a1133bd6c7e5d399c5246075020c5c8057835c40c21a7a5f36fd3495b1"
+  sha256 "2dbb6762a74bad929b605f53669fa160178d3daa82e92983098ed4d368963007"
 
   url "https://github.com/lcw332/ThermalForge/releases/latest/download/ThermalForge-#{version}-macOS.zip"
   name "ThermalForge"
