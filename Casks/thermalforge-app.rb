@@ -12,20 +12,16 @@ cask "thermalforge-app" do
   app "ThermalForgeApp.app"
 
   postflight do
-    system_command "xattr",
+    cli = "#{appdir}/ThermalForgeApp.app/Contents/Resources/thermalforge"
+
+    system_command "/usr/bin/osascript",
+                   args: [
+                     "-e", <<~APPLESCRIPT
+                       do shell script "#{cli} install 2>&1 || true" with administrator privileges
+                     APPLESCRIPT
+                   ]
+
+    system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/ThermalForgeApp.app"]
-  end
-
-  caveats do
-    <<~EOS
-      The GUI app requires the background daemon for fan control.
-      Install the CLI and run setup:
-
-        brew install lcw332/homebrew-tap/thermalforge
-        sudo thermalforge install
-
-      To uninstall later:
-        sudo thermalforge uninstall
-    EOS
   end
 end
