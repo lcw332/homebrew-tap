@@ -10,4 +10,14 @@ class Thermalforge < Formula
   def install
     bin.install "thermalforge"
   end
+
+  def caveats
+    <<~EOS
+      To install the background daemon (required for fan control), run:
+        sudo thermalforge install
+
+      To uninstall later:
+        sudo thermalforge uninstall
+    EOS
+  end
 end
